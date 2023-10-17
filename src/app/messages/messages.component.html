@@ -1,10 +1,13 @@
-<div *ngIf="messageService.messages.length">
-
-    <h2>Messages</h2>
-    <button type="button" class="clear"
-            (click)="messageService.clear()">
-        Clear messages
-    </button>
-    <div *ngFor='let message of messageService.messages'> {{message}} </div>
-
+<div *ngIf="messageService.messages.length" class="border mt-4 p-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Messages</h2>
+        <button type="button" class="btn btn-danger"
+                (click)="messageService.clear()">Clear messages
+        </button>
+    </div>
+    <div *ngFor='let message of messageService.messages'>
+        <blockquote class="blockquote mb-0">
+            <p>{{message}} </p>
+        </blockquote>
+        </div>
 </div>

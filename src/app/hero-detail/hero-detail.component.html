@@ -1,9 +1,13 @@
-<div *ngIf="hero">
-    <h2>{{hero.name | uppercase}} Details</h2>
-    <div>id: {{hero.id}}</div>
-    <div>
-        <label for="hero-name">Hero name: </label>
-        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+<div *ngIf="hero" class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{hero.name | uppercase}} Details</div>
+    <div class="card-body">
+        <h1 class="d-flex justify-content-center card-title">id: {{hero.id}}</h1>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Hero name </span>
+            <input id="hero-name" class="form-control" [(ngModel)]="hero.name" placeholder="name">        
+        </div>
+
+        <button type="button" class="d-flex col-12 btn btn-success justify-content-center" (click)="save()">save</button>
     </div>
 </div>
-<button type="button" (click)="save()">save</button>
+
