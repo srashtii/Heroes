@@ -8,11 +8,17 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'Tour of heroes';
-  constructor(translate: TranslateService) {
+
+  public languages = ['en' , 'fr'];
+  constructor(private translate: TranslateService) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('fr');
+    translate.langs = this.languages;
 
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
     translate.use('fr');
+  }
+
+  public setLanguage(langue: string): void {
+    this.translate.use(langue);
   }
 }

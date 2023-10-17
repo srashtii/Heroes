@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      InMemoryDataService, { dataEncapsulation: false, passThruUnknownUrl: true }
     ),
     TranslateModule.forRoot({
       loader: {

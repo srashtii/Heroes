@@ -1,48 +1,43 @@
-<!-- <h2>{{hero.name  |uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name  }}</div>
- -->
-<!-- <div>
-    <h1>{{hero.name}} </h1>
-    <input type="text" [(ngModel)]="hero.name" />
-</div>
- -->
-<h2>{{"welcome" |translate}}</h2>
+<h2 class="p-4">{{"welcome" |translate}}</h2>
 
-
-<!-- <button type="button" class="delete-button" (click)="delete(hero); heroName.value=''">
-    Delete hero
-</button> -->
-<div *ngIf="loading; else elseBlock" class="spinner-border">
-
-    <span class="sr-only"></span>
-
+<div *ngIf="loading; else elseBlock" class="d-flex justify-content-center" >
+    <div  class="spinner-grow" role="status" style="width: 3rem; height: 3rem;">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 </div>
 <ng-template #elseBlock>
-    <ul class="heroes">
-
-        <li *ngFor="let hero of heroesList">
-            <!-- <button [class.selected]="hero===selectedHero" type="button" (click)="onSelect(hero)">
-                <span class="badge">{{hero.id}}</span>
-                <span class="name">{{hero.name}}</span>
-            </button> -->
-            <a routerLink="/detail/{{hero.id}}">
-                <span class="badge">{{hero.id}}</span> {{hero.name}}
-            </a>
-            <button type="button" class="delete" title="delete hero"
-                    (click)="delete(hero)">
-                x
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero of heroesList">
+            <th scope="row"> 
+                <a routerLink="/detail/{{hero.id}}">
+                    <span class="nav-link">{{hero.id}}</span> 
+                </a>
+            </th>
+            <td>{{hero.name}}</td>
+            <td><button type="button" class="btn btn-sm m-0 btn-danger" title="delete hero"
+                (click)="delete(hero)"> x </button>
+            </td> 
+          </tr>
+        </tbody>
+    </table>
+    <div *ngIf="hero" class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{hero.name | uppercase}}</div>
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Hero name: </span>
+                <input #heroName id="hero-name" class="form-control" [(ngModel)]="hero.name" placeholder="name">        
+            </div>
+            <button type="button" class="btn btn-primary" (click)="add(heroName.value); heroName.value=''">
+                Add hero
             </button>
-        </li>
-    </ul>
-    <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
-    <div>
-        <label for="new-hero">Hero name: </label>
-        <input id="new-hero" #heroName />
-
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
-            Add hero
-        </button>
+        </div>
     </div>
 </ng-template>
