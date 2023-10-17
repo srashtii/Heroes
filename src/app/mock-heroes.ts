@@ -4,7 +4,7 @@ import { Observable, of } from "rxjs";
 import { Hero } from "./Hero";
 
 
-export const heroes: Observable<Hero[]> = of([
+export const heroes = [
   { id: 12, name: 'Dr. Nice' },
   { id: 13, name: 'Bombasto' },
   { id: 14, name: 'Celeritas' },
@@ -14,4 +14,4 @@ export const heroes: Observable<Hero[]> = of([
   { id: 18, name: 'Dr. IQ' },
   { id: 19, name: 'Magma' },
   { id: 20, name: 'Tornado' }
-]);
+];

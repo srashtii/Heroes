@@ -7,13 +7,42 @@
     <input type="text" [(ngModel)]="hero.name" />
 </div>
  -->
-<h2>My Heroes</h2>
-<ul class="heroes">
-    <li *ngFor="let hero of heroesList">
-        <button [class.selected]="hero===selectedHero" type="button" (click)="onSelect(hero)">
-            <span class="badge">{{hero.id}}</span>
-            <span class="name">{{hero.name}}</span>
+<h2>{{"welcome" |translate}}</h2>
+
+
+<!-- <button type="button" class="delete-button" (click)="delete(hero); heroName.value=''">
+    Delete hero
+</button> -->
+<div *ngIf="loading; else elseBlock" class="spinner-border">
+
+    <span class="sr-only"></span>
+
+</div>
+<ng-template #elseBlock>
+    <ul class="heroes">
+
+        <li *ngFor="let hero of heroesList">
+            <!-- <button [class.selected]="hero===selectedHero" type="button" (click)="onSelect(hero)">
+                <span class="badge">{{hero.id}}</span>
+                <span class="name">{{hero.name}}</span>
+            </button> -->
+            <a routerLink="/detail/{{hero.id}}">
+                <span class="badge">{{hero.id}}</span> {{hero.name}}
+            </a>
+            <button type="button" class="delete" title="delete hero"
+                    (click)="delete(hero)">
+                x
+            </button>
+        </li>
+    </ul>
+    <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+    <div>
+        <label for="new-hero">Hero name: </label>
+        <input id="new-hero" #heroName />
+
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+            Add hero
         </button>
-    </li>
-</ul>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+    </div>
+</ng-template>

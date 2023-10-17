@@ -1,5 +1,5 @@
-  export interface Hero {
-  id: number | undefined;
+export interface Hero {
+  id: number;
   name?: string;
 
 }
