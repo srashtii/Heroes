@@ -12,6 +12,7 @@ export class AppComponent {
   public languages = ['en' , 'fr'];
   constructor(private translate: TranslateService) {
     // this language will be used as a fallback when a translation isn't found in the current language
+    translate.langs = ["fr", "en"];
     translate.setDefaultLang('fr');
     translate.langs = this.languages;
 

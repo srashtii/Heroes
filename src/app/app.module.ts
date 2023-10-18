@@ -13,9 +13,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HeroFormComponentComponent } from './hero-form-component/hero-form-component.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http,"./assets/i18n/");
+  return new TranslateHttpLoader(http, "./assets/i18n/");
 }
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroFormComponentComponent
   ],
   imports: [
     BrowserModule,
