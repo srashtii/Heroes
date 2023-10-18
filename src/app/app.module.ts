@@ -14,6 +14,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeroFormComponentComponent } from './hero-form-component/hero-form-component.component';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/");
@@ -25,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroFormComponentComponent
+    HeroFormComponentComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,

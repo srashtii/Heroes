@@ -1,31 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">{{title}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" routerLink="/dashboard" >Dashboard</a>
-        <a class="nav-item nav-link" routerLink="/heroes">Heroes</a>
-      </div>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" routerLink="/dashboard">Dashboard</a>
+            <a class="nav-item nav-link" routerLink="/heroes">Heroes</a>
+            <a class="nav-item nav-link" routerLink="/hero-form">Heroes Form</a>
+        </div>
     </div>
     <div class="dropdown dropstart">
-      <button class="btn btn-sm btn-primary dropdown-toggle m-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ 'languages' | translate }}
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" *ngFor="let langue of languages" (click)="setLanguage(langue)">{{langue}}</a>
-      </div>
+        <button class="btn btn-sm btn-primary dropdown-toggle m-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ 'languages' | translate }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" *ngFor="let langue of languages" (click)="setLanguage(langue)">{{langue}}</a>
+        </div>
     </div>
 </nav>
 
 <router-outlet></router-outlet>
-<<<<<<< .mine
-<app-messages></app-messages>
 
-
-=======
-<app-messages></app-messages>
+<!-- <app-messages></app-messages>
 <span>------------------FORM TEMPLATE------------------------</span>
-<app-hero-form-component></app-hero-form-component>
->>>>>>> .theirs
+<app-hero-form-component></app-hero-form-component> -->
+

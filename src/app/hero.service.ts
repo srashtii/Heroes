@@ -101,4 +101,21 @@ export class HeroService {
       return of(result as T);
     };
   }
+  //pipe is used for map, filter and tap operators
+  //he tap operator returns a new observable which is a mirror copy of the source observable.
+  //We use it mostly for debugging purposes( for example for logging the values of observable as shown below).
+  public searchHeroes(term: string): Observable<Hero[]> {
+
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`)
+      .pipe(tap(x => {
+        x.length ? this.log(`found heroes matching ${term}`) :
+          this.log(`no heroes found`);
+      }
+      ),
+        catchError(this.handleError<Hero[]>('searchHeroes', []))
+      )
+  };
 }
